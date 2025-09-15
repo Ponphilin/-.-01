@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เมนหลักผู้ใช้</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .role-box {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 10px;
+      background: #f9f9f9;
+    }
+    .role-box h4 {
+      margin: 0 0 8px 0;
+      color: #333;
+    }
+    .role-box a {
+      display: inline-block;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>เมนหลัก</h1>
+      <div id="hdr_user"></div>
+    </header>
+
+    <div class="row">
+      <div class="col">
+        <h3>งานของฉัน</h3>
+        <p><a class="button" href="leave-form.html">ยื่นคำขอลา</a></p>
+        <p><a class="button" href="my-leaves.html">ดูประวัติการลา</a></p>
+      </div>
+
+      <div class="col">
+        <h3>บทบาทของฉัน</h3>
+        <div id="special_menu"></div>
+      </div>
+    </div>
+
+    <p class="footer"><a href="#" onclick="logout()">Logout</a></p>
+  </div>
+
+<script src="app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', renderUserDashboard);
+
+function renderUserDashboard() {
+  renderHeader('hdr_user');
+
+  const user = getCurrentUser();
+  const menu = document.getElementById('special_menu');
+  menu.innerHTML = '';
+
+  if (!user || !user.roles) return;
+
+  // แสดงทุกบทบาทที่มี แบบกล่องแยกชัดเจน
+  if (user.roles.includes('mentor')) {
+    menu.innerHTML += `
+      <div class="role-box">
+        <h4>บทบาท: ผู้ควบคุมการปฎิบัติงานนักศึกษา(พี่เลี้ยง)</h4>
+        <a class="button" href="mentor-dashboard.html">ไปที่หน้าพี่เลี้ยง</a>
+      </div>
+    `;
+  }
+
+  if (user.roles.includes('supervisor')) {
+    menu.innerHTML += `
+      <div class="role-box">
+        <h4>บทบาท: หัวหน้าส่วน</h4>
+        <a class="button" href="supervisor-dashboard.html">ไปที่หน้าหัวหน้าส่วน</a>
+      </div>
+    `;
+  }
+
+  if (user.roles.includes('hr')) {
+    menu.innerHTML += `
+      <div class="role-box">
+        <h4>บทบาท: หัวหน้างานบุคลากร</h4>
+        <a class="button" href="admin-dashboard.html">ไปที่หน้าหัวหน้างานบุคลากร</a>
+      </div>
+    `;
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="th">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สมัครสมาชิก</title><link rel="stylesheet" href="style.css"></head>
+<body>
+  <div class="container">
+    <header><h1>สมัครใช้งาน</h1></header>
+    <form id="regForm" onsubmit="registerSubmit(event)">
+      <div class="form-row"><label>ชื่อผู้ใช้</label><input id="reg_username" required></div>
+      <div class="form-row"><label>รหัสผ่าน</label><input id="reg_password" type="password" required></div>
+
+      <div class="form-row"><label>ตำแหน่ง (เลือกอย่างใดอย่างหนึ่ง)</label>
+        <select id="reg_position" required>
+          <option value="">- เลือก -</option>    
+          <option>ข้าราชการ</option>
+          <option>พนักงานราชการ</option>
+          <option>ลูกจ้างเหมาบริการ</option>
+          <option>นักศึกษาฝึกงาน</option>
+        </select>
+      </div>
+
+      <div class="form-row"><label>บทบาท (เลือกได้หลายค่า: กด Ctrl/Command)</label>
+        <select id="reg_roles" multiple>          
+          <option value="supervisor">หัวหน้าส่วน</option>
+          <option value="hr">หัวหน้างานบุคลากร</option>
+          <option value="employee">เจ้าหน้าที่/พนักงาน</option>
+          <option value="mentor">ผู้ควบคุมการปฎิบัติงานนักศึกษา(พี่เลี้ยง)</option>
+        </select>
+      </div>
+
+      <div class="form-row"><label>ส่วน/แผนก</label>
+        <select id="reg_dept" required>
+          <option value="">- เลือก -</option>
+          <option>วิชาการ</option>
+          <option>อำนวยการ</option>
+          <option>ท้องฟ้าจำลอง</option>
+          <option>ส่งเสริมและบริการ</option>
+          <option>อาคารและสถานที่</option>
+        </select>
+      </div>
+
+      <div class="form-row"><button class="button" type="submit">สมัคร</button> <a href="index.html" class="button ghost">กลับ</a></div>
+      <p id="reg_msg" class="small" style="color:green;display:none"></p>
+    </form>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>

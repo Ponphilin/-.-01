@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>จัดการผู้ใช้งาน</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>จัดการผู้ใช้งาน</h1>
+    <nav>
+      <a href="admin-dashboard.html">⬅ กลับแดชบอร์ด</a>
+      <a href="index.html" onclick="logout()">ออกจากระบบ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>รายการผู้ใช้งานทั้งหมด</h2>
+      <table border="1" cellpadding="8" cellspacing="0" id="usersTable">
+        <thead>
+          <tr>
+            <th>ชื่อผู้ใช้</th>
+            <th>แผนก</th>
+            <th>ตำแหน่ง</th>
+            <th>บทบาท</th>
+            <th>จัดการ</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderUserManagement();
+    });
+  </script>
+</body>
+</html>

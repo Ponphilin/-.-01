@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="th">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ฟอร์มการลา</title><link rel="stylesheet" href="style.css"></head>
+<body>
+  <div class="container">
+    <header><h1>ฟอร์มการลา</h1><div id="hdr_user"></div></header>
+
+    <form id="leaveForm" onsubmit="leaveSubmit(event)">
+      <div class="form-row"><label>ตำแหน่ง</label><input id="leave_position" readonly></div>
+
+      <div class="form-row"><label>ประเภทการลา</label>
+        <select id="leave_category">
+          <option>ลาป่วย</option>
+          <option>ลากิจ</option>
+          <option>ลาอื่น ๆ</option>
+        </select>
+      </div>
+
+      <div class="form-row"><label>ส่วน/แผนก</label>
+        <select id="leave_dept"></select>
+      </div>
+
+      <div class="form-row"><label>วันที่เริ่ม</label><input id="start_date" type="date" required></div>
+      <div class="form-row"><label>วันที่สิ้นสุด</label><input id="end_date" type="date" required></div>
+      <div class="form-row"><label>เหตุผล</label><textarea id="reason"></textarea></div>
+
+      <div class="form-row"><label>แนบไฟล์ (ใบรับรอง/เอกสาร) — (ถ้ามี)</label>
+        <input id="attachment" type="file" accept=".pdf,image/*">
+      </div>
+
+      <div class="form-row"><button class="button" type="submit">ส่งคำขอ</button> <a class="button ghost" href="user-dashboard.html">ยกเลิก</a></div>
+      <p id="leave_msg" class="small" style="color:green;display:none"></p>
+    </form>
+  </div>
+
+<script src="app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', ()=>{
+  renderHeader('hdr_user');
+  // populate depts and show current user's position
+  const sel = document.getElementById('leave_dept');
+  const DEPARTMENTS = ['วิชาการ','อำนวยการ','ท้องฟ้าจำลอง','ส่งเสริมและบริการ','อาคารและสถานที่'];
+  sel.innerHTML = DEPARTMENTS.map(d=>`<option>${d}</option>`).join('');
+  const u = getCurrentUser();
+  if(u) document.getElementById('leave_position').value = u.position || '';
+});
+</script>
+</body>
+</html>

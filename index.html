@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="th">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบลาออนไลน์ของบุคลากร ศว.รังสิต</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header><h1>ระบบลาออนไลน์ของบุคลากร ศูนย์วิทยาศาสตร์เพื่อการศึกษารังสิต</h1></header>
+
+    <h2>เข้าสู่ระบบ</h2>
+    <form id="loginForm" onsubmit="loginSubmit(event)">
+      <div class="form-row"><label>ชื่อผู้ใช้</label><input id="login_username" required></div>
+      <div class="form-row"><label>รหัสผ่าน</label><input id="login_password" type="password" required></div>
+      <div class="form-row"><button class="button" type="submit">Login</button> <a class="button" href="register.html">สมัครสมาชิก</a></div>
+      <p id="login_error" class="error" style="display:none"></p>
+    </form>
+
+    <p class="small">ตัวอย่างบัญชี: <strong>admin/pass</strong> (หัวหน้างานบุคลากร), 
+      <strong>hr_officer/pass</strong> (ฝ่ายบุคลากร), 
+      <strong>sup_it/pass</strong> (หัวหน้าส่วน), 
+      <strong>mentor_lee/pass</strong> (พี่เลี้ยง), 
+      <strong>alice/pass</strong>, <strong>bob/pass</strong></p>
+  </div>
+
+  <script src="app.js"></script>
+
+  <script>
+function login() {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+
+}
+</script>
+
+</body>
+</html>
